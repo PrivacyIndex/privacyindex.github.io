@@ -69,28 +69,23 @@
       color:#102331
     }
 
-    .section{
-      margin-bottom:2.6rem;
-      padding:1.3rem 1.4rem 1.1rem;
-      border-radius:18px;
-      background:#ffffffee;
-      box-shadow:0 8px 26px #00000017;
-      backdrop-filter:blur(10px)
-    }
-    .section h2{
-      font-size:1.05rem;
-      font-weight:700;
-      letter-spacing:.08em;
+    .category-label{
+      font-size:.82rem;
+      font-weight:600;
+      letter-spacing:.16em;
       text-transform:uppercase;
-      color:#0c2334;
-      margin-bottom:.9rem;
-      opacity:.96
+      color:#3b566d;
+      margin:1.7rem .1rem .55rem;
+      opacity:.9
+    }
+    .category-label:first-of-type{
+      margin-top:0
     }
 
     .tool-list{
       display:flex;
       flex-direction:column;
-      gap:.85rem
+      gap:.75rem
     }
 
     .tool-card{
@@ -99,8 +94,8 @@
       gap:.9rem;
       padding:.85rem 1rem;
       border-radius:16px;
-      background:radial-gradient(circle at 0 0,#ffffffee,transparent)
-                 ,#ffffffcc;
+      background:radial-gradient(circle at 0 0,#ffffffee,transparent),
+                 #ffffffcc;
       box-shadow:0 4px 14px #0000001a;
       backdrop-filter:blur(14px);
       border:1px solid #ffffffaa;
@@ -116,8 +111,8 @@
     .tool-card:focus-visible{
       transform:translateY(-2px);
       box-shadow:0 9px 26px #0000002b;
-      background:radial-gradient(circle at 0 0,#ffffff,transparent)
-                 ,#ffffffdd;
+      background:radial-gradient(circle at 0 0,#ffffff,transparent),
+                 #ffffffdd;
       border-color:#c0e4ff;
       outline:none
     }
@@ -174,16 +169,20 @@
 
     .warn{
       font-weight:700;
-      color:#b00020
+      color:#b00020;
+      margin:.8rem .15rem 0
     }
     .muted{
-      opacity:.76
+      opacity:.76;
+      margin:.15rem .15rem 0
     }
 
     @media(max-width:640px){
       main{padding:100vh 5vw 3.6rem}
-      .section{margin-bottom:2.1rem;padding:1.1rem 1rem .9rem}
-      .section h2{font-size:.96rem}
+      .category-label{
+        font-size:.76rem;
+        margin:1.4rem .05rem .45rem
+      }
       .tool-card{
         padding:.78rem .9rem;
         gap:.75rem
@@ -360,266 +359,244 @@
   </div>
 
   <main>
-    <section class="section">
-      <h2>VPN</h2>
-      <div class="tool-list">
-        <a class="tool-card" href="https://mullvad.net" target="_blank" rel="noopener">
-          <div class="tool-icon">☁️</div>
-          <div class="tool-content">
-            <div class="tool-name">Mullvad</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">VPN</span>
-            </div>
+    <div class="category-label">VPN</div>
+    <div class="tool-list">
+      <a class="tool-card" href="https://mullvad.net" target="_blank" rel="noopener">
+        <div class="tool-icon">☁️</div>
+        <div class="tool-content">
+          <div class="tool-name">Mullvad</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">VPN</span>
           </div>
-        </a>
-        <a class="tool-card" href="https://protonvpn.com" target="_blank" rel="noopener">
-          <div class="tool-icon">☁️</div>
-          <div class="tool-content">
-            <div class="tool-name">Proton VPN</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">VPN</span>
-            </div>
+        </div>
+      </a>
+      <a class="tool-card" href="https://protonvpn.com" target="_blank" rel="noopener">
+        <div class="tool-icon">☁️</div>
+        <div class="tool-content">
+          <div class="tool-name">Proton VPN</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">VPN</span>
           </div>
-        </a>
-      </div>
-    </section>
+        </div>
+      </a>
+    </div>
 
-    <section class="section">
-      <h2>Browser</h2>
-      <div class="tool-list">
-        <a class="tool-card" href="https://www.mozilla.org/firefox/new/" target="_blank" rel="noopener">
-          <div class="tool-icon">🌐</div>
-          <div class="tool-content">
-            <div class="tool-name">Firefox (Hardened)</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Browser</span>
-            </div>
+    <div class="category-label">Browser</div>
+    <div class="tool-list">
+      <a class="tool-card" href="https://www.mozilla.org/firefox/new/" target="_blank" rel="noopener">
+        <div class="tool-icon">🌐</div>
+        <div class="tool-content">
+          <div class="tool-name">Firefox (Hardened)</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Browser</span>
           </div>
-        </a>
-        <a class="tool-card" href="https://www.torproject.org/download/" target="_blank" rel="noopener">
-          <div class="tool-icon">🧅</div>
-          <div class="tool-content">
-            <div class="tool-name">Tor Browser</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Browser</span>
-            </div>
+        </div>
+      </a>
+      <a class="tool-card" href="https://www.torproject.org/download/" target="_blank" rel="noopener">
+        <div class="tool-icon">🧅</div>
+        <div class="tool-content">
+          <div class="tool-name">Tor Browser</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Browser</span>
           </div>
-        </a>
-      </div>
-    </section>
+        </div>
+      </a>
+    </div>
 
-    <section class="section">
-      <h2>Operating Systems</h2>
-      <div class="tool-list">
-        <a class="tool-card" href="https://www.qubes-os.org" target="_blank" rel="noopener">
-          <div class="tool-icon">💻</div>
-          <div class="tool-content">
-            <div class="tool-name">Qubes OS</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">OS</span>
-            </div>
+    <div class="category-label">Operating Systems</div>
+    <div class="tool-list">
+      <a class="tool-card" href="https://www.qubes-os.org" target="_blank" rel="noopener">
+        <div class="tool-icon">💻</div>
+        <div class="tool-content">
+          <div class="tool-name">Qubes OS</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">OS</span>
           </div>
-        </a>
-        <a class="tool-card" href="https://tails.net" target="_blank" rel="noopener">
-          <div class="tool-icon">💻</div>
-          <div class="tool-content">
-            <div class="tool-name">Tails</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">OS</span>
-            </div>
+        </div>
+      </a>
+      <a class="tool-card" href="https://tails.net" target="_blank" rel="noopener">
+        <div class="tool-icon">💻</div>
+        <div class="tool-content">
+          <div class="tool-name">Tails</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">OS</span>
           </div>
-        </a>
-        <a class="tool-card" href="https://getfedora.org" target="_blank" rel="noopener">
-          <div class="tool-icon">💻</div>
-          <div class="tool-content">
-            <div class="tool-name">Fedora</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">OS</span>
-            </div>
+        </div>
+      </a>
+      <a class="tool-card" href="https://getfedora.org" target="_blank" rel="noopener">
+        <div class="tool-icon">💻</div>
+        <div class="tool-content">
+          <div class="tool-name">Fedora</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">OS</span>
           </div>
-        </a>
-      </div>
-    </section>
+        </div>
+      </a>
+    </div>
 
-    <section class="section">
-      <h2>Password Management + Auth</h2>
-      <div class="tool-list">
-        <a class="tool-card" href="https://keepassxc.org" target="_blank" rel="noopener">
-          <div class="tool-icon">🔑</div>
-          <div class="tool-content">
-            <div class="tool-name">KeePassXC</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Password</span>
-            </div>
+    <div class="category-label">Password Management + Auth</div>
+    <div class="tool-list">
+      <a class="tool-card" href="https://keepassxc.org" target="_blank" rel="noopener">
+        <div class="tool-icon">🔑</div>
+        <div class="tool-content">
+          <div class="tool-name">KeePassXC</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Password</span>
           </div>
-        </a>
-        <a class="tool-card" href="https://www.keepassdx.com" target="_blank" rel="noopener">
-          <div class="tool-icon">🔑</div>
-          <div class="tool-content">
-            <div class="tool-name">KeePassDX</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Password</span>
-            </div>
+        </div>
+      </a>
+      <a class="tool-card" href="https://www.keepassdx.com" target="_blank" rel="noopener">
+        <div class="tool-icon">🔑</div>
+        <div class="tool-content">
+          <div class="tool-name">KeePassDX</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Password</span>
           </div>
-        </a>
-        <a class="tool-card" href="https://www.mozilla.org/firefox/features/password-manager/" target="_blank" rel="noopener">
-          <div class="tool-icon">🔑</div>
-          <div class="tool-content">
-            <div class="tool-name">Firefox Password Manager</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Password</span>
-            </div>
+        </div>
+      </a>
+      <a class="tool-card" href="https://www.mozilla.org/firefox/features/password-manager/" target="_blank" rel="noopener">
+        <div class="tool-icon">🔑</div>
+        <div class="tool-content">
+          <div class="tool-name">Firefox Password Manager</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Password</span>
           </div>
-        </a>
-        <a class="tool-card" href="https://proton.me/pass" target="_blank" rel="noopener">
-          <div class="tool-icon">🔑</div>
-          <div class="tool-content">
-            <div class="tool-name">Proton Pass</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Password</span>
-            </div>
+        </div>
+      </a>
+      <a class="tool-card" href="https://proton.me/pass" target="_blank" rel="noopener">
+        <div class="tool-icon">🔑</div>
+        <div class="tool-content">
+          <div class="tool-name">Proton Pass</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Password</span>
           </div>
-        </a>
-        <a class="tool-card" href="https://proton.me/authenticator" target="_blank" rel="noopener">
-          <div class="tool-icon">🔑</div>
-          <div class="tool-content">
-            <div class="tool-name">Proton Auth</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">2FA</span>
-            </div>
+        </div>
+      </a>
+      <a class="tool-card" href="https://proton.me/authenticator" target="_blank" rel="noopener">
+        <div class="tool-icon">🔑</div>
+        <div class="tool-content">
+          <div class="tool-name">Proton Auth</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">2FA</span>
           </div>
-        </a>
-      </div>
-    </section>
+        </div>
+      </a>
+    </div>
 
-    <section class="section">
-      <h2>Email</h2>
-      <div class="tool-list">
-        <a class="tool-card" href="https://proton.me/mail" target="_blank" rel="noopener">
-          <div class="tool-icon">✉️</div>
-          <div class="tool-content">
-            <div class="tool-name">Proton Mail</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Email</span>
-            </div>
+    <div class="category-label">Email</div>
+    <div class="tool-list">
+      <a class="tool-card" href="https://proton.me/mail" target="_blank" rel="noopener">
+        <div class="tool-icon">✉️</div>
+        <div class="tool-content">
+          <div class="tool-name">Proton Mail</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Email</span>
           </div>
-        </a>
-      </div>
-    </section>
+        </div>
+      </a>
+    </div>
 
-    <section class="section">
-      <h2>File Storage</h2>
-      <div class="tool-list">
-        <a class="tool-card" href="https://proton.me/drive" target="_blank" rel="noopener">
-          <div class="tool-icon">📁</div>
-          <div class="tool-content">
-            <div class="tool-name">Proton Drive</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Storage</span>
-            </div>
+    <div class="category-label">File Storage</div>
+    <div class="tool-list">
+      <a class="tool-card" href="https://proton.me/drive" target="_blank" rel="noopener">
+        <div class="tool-icon">📁</div>
+        <div class="tool-content">
+          <div class="tool-name">Proton Drive</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Storage</span>
           </div>
-        </a>
-      </div>
-    </section>
+        </div>
+      </a>
+    </div>
 
-    <section class="section">
-      <h2>Cryptocurrency</h2>
-      <div class="tool-list">
-        <a class="tool-card" href="https://www.getmonero.org" target="_blank" rel="noopener">
-          <div class="tool-icon">🪙</div>
-          <div class="tool-content">
-            <div class="tool-name">Monero</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Primary</span>
-            </div>
+    <div class="category-label">Cryptocurrency</div>
+    <div class="tool-list">
+      <a class="tool-card" href="https://www.getmonero.org" target="_blank" rel="noopener">
+        <div class="tool-icon">🪙</div>
+        <div class="tool-content">
+          <div class="tool-name">Monero</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Primary</span>
           </div>
-        </a>
-        <a class="tool-card" href="https://bitcoin.org" target="_blank" rel="noopener">
-          <div class="tool-icon">🪙</div>
-          <div class="tool-content">
-            <div class="tool-name">Bitcoin</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Secondary</span>
-            </div>
+        </div>
+      </a>
+      <a class="tool-card" href="https://bitcoin.org" target="_blank" rel="noopener">
+        <div class="tool-icon">🪙</div>
+        <div class="tool-content">
+          <div class="tool-name">Bitcoin</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Secondary</span>
           </div>
-        </a>
-      </div>
-      <p class="warn" style="margin-top:.9rem">
-        Avoid Zcash: lots of influential people, including Edward Snowden,
-        sold out to advertise Zcash; trust and incentives are misaligned.
-      </p>
-    </section>
+        </div>
+      </a>
+    </div>
+    <p class="warn">
+      Avoid Zcash: lots of influential people, including Edward Snowden,
+      sold out to advertise Zcash; trust and incentives are misaligned.
+    </p>
 
-    <section class="section">
-      <h2>Instant Messaging</h2>
-      <div class="tool-list">
-        <a class="tool-card" href="https://signal.org" target="_blank" rel="noopener">
-          <div class="tool-icon">💬</div>
-          <div class="tool-content">
-            <div class="tool-name">Signal</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Messaging</span>
-            </div>
+    <div class="category-label">Instant Messaging</div>
+    <div class="tool-list">
+      <a class="tool-card" href="https://signal.org" target="_blank" rel="noopener">
+        <div class="tool-icon">💬</div>
+        <div class="tool-content">
+          <div class="tool-name">Signal</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Messaging</span>
           </div>
-        </a>
-      </div>
-    </section>
+        </div>
+      </a>
+    </div>
 
-    <section class="section">
-      <h2>Web Search</h2>
-      <p class="muted">
-        Nothing currently good enough to recommend without major caveats.
-      </p>
-    </section>
+    <div class="category-label">Web Search</div>
+    <p class="muted">
+      Nothing currently good enough to recommend without major caveats.
+    </p>
 
-    <section class="section">
-      <h2>Calendar</h2>
-      <div class="tool-list">
-        <a class="tool-card" href="https://proton.me/calendar" target="_blank" rel="noopener">
-          <div class="tool-icon">📅</div>
-          <div class="tool-content">
-            <div class="tool-name">Proton Calendar</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Calendar</span>
-            </div>
+    <div class="category-label">Calendar</div>
+    <div class="tool-list">
+      <a class="tool-card" href="https://proton.me/calendar" target="_blank" rel="noopener">
+        <div class="tool-icon">📅</div>
+        <div class="tool-content">
+          <div class="tool-name">Proton Calendar</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Calendar</span>
           </div>
-        </a>
-      </div>
-    </section>
+        </div>
+      </a>
+    </div>
 
-    <section class="section">
-      <h2>Hosting</h2>
-      <div class="tool-list">
-        <a class="tool-card" href="https://ovobox.org" target="_blank" rel="noopener">
-          <div class="tool-icon">🌐</div>
-          <div class="tool-content">
-            <div class="tool-name">ovobox.org</div>
-            <div class="tool-label">
-              Official site
-              <span class="tool-tag">Hosting</span>
-            </div>
+    <div class="category-label">Hosting</div>
+    <div class="tool-list">
+      <a class="tool-card" href="https://ovobox.org" target="_blank" rel="noopener">
+        <div class="tool-icon">🌐</div>
+        <div class="tool-content">
+          <div class="tool-name">ovobox.org</div>
+          <div class="tool-label">
+            Official site
+            <span class="tool-tag">Hosting</span>
           </div>
-        </a>
-      </div>
-    </section>
+        </div>
+      </a>
+    </div>
   </main>
 
   <script>
