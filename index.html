@@ -72,18 +72,19 @@
     .section{
       margin-bottom:2.6rem;
       padding:1.3rem 1.4rem 1.1rem;
-      border-radius:14px;
+      border-radius:18px;
       background:#ffffffee;
       box-shadow:0 8px 26px #00000017;
-      backdrop-filter:blur(8px)
+      backdrop-filter:blur(10px)
     }
     .section h2{
-      font-size:1.1rem;
+      font-size:1.05rem;
       font-weight:700;
-      letter-spacing:.06em;
+      letter-spacing:.08em;
       text-transform:uppercase;
       color:#0c2334;
-      margin-bottom:.8rem
+      margin-bottom:.9rem;
+      opacity:.96
     }
 
     .tool-list{
@@ -96,47 +97,57 @@
       display:flex;
       align-items:center;
       gap:.9rem;
-      padding:.75rem .9rem;
-      border-radius:12px;
-      background:#0f2234;
-      color:#f5f7fb;
+      padding:.85rem 1rem;
+      border-radius:16px;
+      background:radial-gradient(circle at 0 0,#ffffffee,transparent)
+                 ,#ffffffcc;
+      box-shadow:0 4px 14px #0000001a;
+      backdrop-filter:blur(14px);
+      border:1px solid #ffffffaa;
       text-decoration:none;
-      box-shadow:0 4px 16px #00000033;
-      transition:transform .14s ease,box-shadow .14s ease,background .14s ease
+      color:#102331;
+      transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        background .16s ease,
+        border-color .16s ease
     }
     .tool-card:hover,
     .tool-card:focus-visible{
-      background:#152c43;
       transform:translateY(-2px);
-      box-shadow:0 7px 22px #00000040;
+      box-shadow:0 9px 26px #0000002b;
+      background:radial-gradient(circle at 0 0,#ffffff,transparent)
+                 ,#ffffffdd;
+      border-color:#c0e4ff;
       outline:none
     }
 
     .tool-icon{
       flex:0 0 44px;
       height:44px;
-      border-radius:50%;
-      background:radial-gradient(circle at 30% 20%,#ffffffee,transparent),
-                 linear-gradient(145deg,#4fa65a,#2c6fb3);
+      border-radius:14px;
+      background:
+        radial-gradient(circle at 25% 15%,#ffffffee,transparent),
+        linear-gradient(145deg,#f4f9ff,#d7ecff);
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:20px;
-      color:#0f2234;
-      box-shadow:0 2px 6px #00000055
+      font-size:22px;
+      color:#4a7bb6;
+      box-shadow:0 3px 8px #00000026
     }
 
     .tool-content{
       display:flex;
       flex-direction:column;
-      gap:.1rem;
+      gap:.06rem;
       min-width:0
     }
 
     .tool-name{
       font-size:.98rem;
       font-weight:600;
-      color:#e8f3ff;
+      color:#0f2234;
       text-decoration:underline;
       text-underline-offset:2px;
       white-space:nowrap;
@@ -146,7 +157,19 @@
 
     .tool-label{
       font-size:.78rem;
-      opacity:.82
+      color:#4c6b85;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.4rem;
+      align-items:center
+    }
+
+    .tool-tag{
+      padding:.05rem .45rem;
+      border-radius:999px;
+      background:#e5f3ff;
+      font-size:.7rem;
+      color:#2f6fa1
     }
 
     .warn{
@@ -160,14 +183,15 @@
     @media(max-width:640px){
       main{padding:100vh 5vw 3.6rem}
       .section{margin-bottom:2.1rem;padding:1.1rem 1rem .9rem}
-      .section h2{font-size:1.0rem}
+      .section h2{font-size:.96rem}
       .tool-card{
-        padding:.7rem .8rem;
+        padding:.78rem .9rem;
         gap:.75rem
       }
       .tool-icon{
         flex-basis:40px;
-        height:40px
+        height:40px;
+        font-size:20px
       }
       .tool-name{font-size:.94rem}
       .tool-label{font-size:.74rem}
@@ -343,14 +367,20 @@
           <div class="tool-icon">☁️</div>
           <div class="tool-content">
             <div class="tool-name">Mullvad</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">VPN</span>
+            </div>
           </div>
         </a>
         <a class="tool-card" href="https://protonvpn.com" target="_blank" rel="noopener">
           <div class="tool-icon">☁️</div>
           <div class="tool-content">
             <div class="tool-name">Proton VPN</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">VPN</span>
+            </div>
           </div>
         </a>
       </div>
@@ -363,14 +393,20 @@
           <div class="tool-icon">🌐</div>
           <div class="tool-content">
             <div class="tool-name">Firefox (Hardened)</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Browser</span>
+            </div>
           </div>
         </a>
         <a class="tool-card" href="https://www.torproject.org/download/" target="_blank" rel="noopener">
-          <div class="tool-icon">🌐</div>
+          <div class="tool-icon">🧅</div>
           <div class="tool-content">
             <div class="tool-name">Tor Browser</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Browser</span>
+            </div>
           </div>
         </a>
       </div>
@@ -383,21 +419,30 @@
           <div class="tool-icon">💻</div>
           <div class="tool-content">
             <div class="tool-name">Qubes OS</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">OS</span>
+            </div>
           </div>
         </a>
         <a class="tool-card" href="https://tails.net" target="_blank" rel="noopener">
           <div class="tool-icon">💻</div>
           <div class="tool-content">
             <div class="tool-name">Tails</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">OS</span>
+            </div>
           </div>
         </a>
         <a class="tool-card" href="https://getfedora.org" target="_blank" rel="noopener">
           <div class="tool-icon">💻</div>
           <div class="tool-content">
             <div class="tool-name">Fedora</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">OS</span>
+            </div>
           </div>
         </a>
       </div>
@@ -410,35 +455,50 @@
           <div class="tool-icon">🔑</div>
           <div class="tool-content">
             <div class="tool-name">KeePassXC</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Password</span>
+            </div>
           </div>
         </a>
         <a class="tool-card" href="https://www.keepassdx.com" target="_blank" rel="noopener">
           <div class="tool-icon">🔑</div>
           <div class="tool-content">
             <div class="tool-name">KeePassDX</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Password</span>
+            </div>
           </div>
         </a>
         <a class="tool-card" href="https://www.mozilla.org/firefox/features/password-manager/" target="_blank" rel="noopener">
           <div class="tool-icon">🔑</div>
           <div class="tool-content">
             <div class="tool-name">Firefox Password Manager</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Password</span>
+            </div>
           </div>
         </a>
         <a class="tool-card" href="https://proton.me/pass" target="_blank" rel="noopener">
           <div class="tool-icon">🔑</div>
           <div class="tool-content">
             <div class="tool-name">Proton Pass</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Password</span>
+            </div>
           </div>
         </a>
         <a class="tool-card" href="https://proton.me/authenticator" target="_blank" rel="noopener">
           <div class="tool-icon">🔑</div>
           <div class="tool-content">
             <div class="tool-name">Proton Auth</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">2FA</span>
+            </div>
           </div>
         </a>
       </div>
@@ -451,7 +511,10 @@
           <div class="tool-icon">✉️</div>
           <div class="tool-content">
             <div class="tool-name">Proton Mail</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Email</span>
+            </div>
           </div>
         </a>
       </div>
@@ -464,7 +527,10 @@
           <div class="tool-icon">📁</div>
           <div class="tool-content">
             <div class="tool-name">Proton Drive</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Storage</span>
+            </div>
           </div>
         </a>
       </div>
@@ -477,14 +543,20 @@
           <div class="tool-icon">🪙</div>
           <div class="tool-content">
             <div class="tool-name">Monero</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Primary</span>
+            </div>
           </div>
         </a>
         <a class="tool-card" href="https://bitcoin.org" target="_blank" rel="noopener">
           <div class="tool-icon">🪙</div>
           <div class="tool-content">
             <div class="tool-name">Bitcoin</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Secondary</span>
+            </div>
           </div>
         </a>
       </div>
@@ -501,7 +573,10 @@
           <div class="tool-icon">💬</div>
           <div class="tool-content">
             <div class="tool-name">Signal</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Messaging</span>
+            </div>
           </div>
         </a>
       </div>
@@ -521,7 +596,10 @@
           <div class="tool-icon">📅</div>
           <div class="tool-content">
             <div class="tool-name">Proton Calendar</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Calendar</span>
+            </div>
           </div>
         </a>
       </div>
@@ -534,7 +612,10 @@
           <div class="tool-icon">🌐</div>
           <div class="tool-content">
             <div class="tool-name">ovobox.org</div>
-            <div class="tool-label">Homepage</div>
+            <div class="tool-label">
+              Official site
+              <span class="tool-tag">Hosting</span>
+            </div>
           </div>
         </a>
       </div>
