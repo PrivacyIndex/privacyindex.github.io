@@ -14,14 +14,15 @@
     }
     body{overflow-x:hidden}
     .scene-wrap{
-      position:relative;
-      width:100vw;
-      height:100vh;
+      position:fixed;
+      inset:0;
       display:flex;
       align-items:flex-end;
       justify-content:center;
       background:linear-gradient(to bottom,#bfe7ff 0%,#d8f1ff 35%,#f5fbff 100%);
-      overflow:hidden
+      overflow:hidden;
+      z-index:0;
+      pointer-events:none
     }
     .scene-sky{
       position:absolute;
@@ -58,14 +59,14 @@
       opacity:.82;
       letter-spacing:.06em
     }
-    .content{
+
+    main{
       position:relative;
       z-index:10;
       max-width:960px;
       margin:0 auto;
-      padding:4rem 6vw 5rem;
-      color:#102331;
-      background:transparent
+      padding:100vh 6vw 5rem;
+      color:#102331
     }
     .section{
       margin-bottom:2.6rem;
@@ -100,7 +101,7 @@
       opacity:.76
     }
     @media(max-width:640px){
-      .content{padding:3rem 5vw 3.6rem}
+      main{padding:100vh 5vw 3.6rem}
       .section{margin-bottom:2.1rem;padding:1.1rem 1rem .9rem}
       .section h2{font-size:1.0rem}
       .section p{font-size:.9rem}
@@ -159,261 +160,231 @@
         <ellipse cx="1105" cy="168" rx="46" ry="24" />
       </g>
 
-      <path
-        id="hill"
-        d="M0,530
-           C240,480 420,470 720,500
-           C1040,530 1180,500 1440,470
-           L1440,660 L0,660 Z"
-        fill="url(#hillGradient)"
-        opacity="0.96"
-      />
-
-      <path
-        id="land"
-        d="M0,560
-           C260,540 480,555 720,570
-           C1040,590 1200,600 1440,610
-           L1440,760 L0,760 Z"
-        fill="url(#landGradient)"
-      />
-
-      <path
-        id="dirt"
-        d="M0,720
-           C220,700 430,715 720,730
-           C1040,750 1220,760 1440,755
-           L1440,900 L0,900 Z"
-        fill="url(#dirtGradient)"
-      />
-
-      <g>
-        <circle cx="160" cy="540" r="7" fill="#ffffffaa" />
-        <circle cx="310" cy="520" r="6" fill="#ffffffaa" />
-        <circle cx="490" cy="535" r="5" fill="#ffffffaa" />
-      </g>
-
-      <g class="tree" transform="translate(190,520)">
-        <rect x="-5" y="0" width="10" height="42" fill="url(#treeTrunk)" />
-        <circle cx="0" cy="-6" r="24" fill="url(#treeCrown)" />
-        <circle cx="-16" cy="0" r="16" fill="url(#treeCrown)" />
-        <circle cx="16" cy="0" r="16" fill="url(#treeCrown)" />
-      </g>
-
-      <g class="tree" transform="translate(360,515)">
-        <rect x="-4" y="0" width="8" height="36" fill="url(#treeTrunk)" />
-        <circle cx="0" cy="-4" r="20" fill="url(#treeCrown)" />
-        <circle cx="-13" cy="2" r="13" fill="url(#treeCrown)" />
-        <circle cx="13" cy="2" r="13" fill="url(#treeCrown)" />
-      </g>
-
-      <g class="tree" transform="translate(560,525)">
-        <rect x="-4" y="0" width="8" height="40" fill="url(#treeTrunk)" />
-        <circle cx="0" cy="-6" r="22" fill="url(#treeCrown)" />
-        <circle cx="-14" cy="2" r="14" fill="url(#treeCrown)" />
-        <circle cx="14" cy="2" r="14" fill="url(#treeCrown)" />
-      </g>
-
-      <g class="tree" transform="translate(860,520)">
-        <rect x="-4" y="0" width="8" height="38" fill="url(#treeTrunk)" />
-        <circle cx="0" cy="-6" r="21" fill="url(#treeCrown)" />
-        <circle cx="-13" cy="2" r="13" fill="url(#treeCrown)" />
-        <circle cx="13" cy="2" r="13" fill="url(#treeCrown)" />
-      </g>
-
-      <g class="tree" transform="translate(1120,515)">
-        <rect x="-5" y="0" width="10" height="44" fill="url(#treeTrunk)" />
-        <circle cx="0" cy="-8" r="25" fill="url(#treeCrown)" />
-        <circle cx="-17" cy="0" r="16" fill="url(#treeCrown)" />
-        <circle cx="17" cy="0" r="16" fill="url(#treeCrown)" />
-      </g>
-
-      <g opacity="0.18" fill="#000000">
-        <ellipse cx="190" cy="565" rx="15" ry="4" />
-        <ellipse cx="360" cy="560" rx="13" ry="3.5" />
-        <ellipse cx="560" cy="570" rx="14" ry="4" />
-        <ellipse cx="860" cy="565" rx="13" ry="3.5" />
-        <ellipse cx="1120" cy="560" rx="16" ry="4" />
-      </g>
-
-      <g opacity="0.5">
+      <g id="ground-group">
         <path
-          d="M90,735 C130,728 190,726 240,730"
-          fill="none"
-          stroke="#d9b28a"
-          stroke-width="3"
-          stroke-linecap="round"
+          id="hill"
+          d="M0,530
+             C240,480 420,470 720,500
+             C1040,530 1180,500 1440,470
+             L1440,660 L0,660 Z"
+          fill="url(#hillGradient)"
+          opacity="0.96"
         />
         <path
-          d="M520,742 C580,736 640,736 700,741"
-          fill="none"
-          stroke="#c89c73"
-          stroke-width="3"
-          stroke-linecap="round"
+          id="land"
+          d="M0,560
+             C260,540 480,555 720,570
+             C1040,590 1200,600 1440,610
+             L1440,760 L0,760 Z"
+          fill="url(#landGradient)"
         />
         <path
-          d="M960,750 C1040,744 1160,744 1240,748"
-          fill="none"
-          stroke="#b6865e"
-          stroke-width="3"
-          stroke-linecap="round"
+          id="dirt"
+          d="M0,720
+             C220,700 430,715 720,730
+             C1040,750 1220,760 1440,755
+             L1440,900 L0,900 Z"
+          fill="url(#dirtGradient)"
         />
-      </g>
 
-      <text
-        x="50"
-        y="880"
-        class="ground-label"
-      >FOUNDATION: TRANSPARENT, VERIFIABLE PRIVACY SCORES</text>
+        <g>
+          <circle cx="160" cy="540" r="7" fill="#ffffffaa" />
+          <circle cx="310" cy="520" r="6" fill="#ffffffaa" />
+          <circle cx="490" cy="535" r="5" fill="#ffffffaa" />
+        </g>
+
+        <g class="tree" transform="translate(190,520)">
+          <rect x="-5" y="0" width="10" height="42" fill="url(#treeTrunk)" />
+          <circle cx="0" cy="-6" r="24" fill="url(#treeCrown)" />
+          <circle cx="-16" cy="0" r="16" fill="url(#treeCrown)" />
+          <circle cx="16" cy="0" r="16" fill="url(#treeCrown)" />
+        </g>
+
+        <g class="tree" transform="translate(360,515)">
+          <rect x="-4" y="0" width="8" height="36" fill="url(#treeTrunk)" />
+          <circle cx="0" cy="-4" r="20" fill="url(#treeCrown)" />
+          <circle cx="-13" cy="2" r="13" fill="url(#treeCrown)" />
+          <circle cx="13" cy="2" r="13" fill="url(#treeCrown)" />
+        </g>
+
+        <g class="tree" transform="translate(560,525)">
+          <rect x="-4" y="0" width="8" height="40" fill="url(#treeTrunk)" />
+          <circle cx="0" cy="-6" r="22" fill="url(#treeCrown)" />
+          <circle cx="-14" cy="2" r="14" fill="url(#treeCrown)" />
+          <circle cx="14" cy="2" r="14" fill="url(#treeCrown)" />
+        </g>
+
+        <g class="tree" transform="translate(860,520)">
+          <rect x="-4" y="0" width="8" height="38" fill="url(#treeTrunk)" />
+          <circle cx="0" cy="-6" r="21" fill="url(#treeCrown)" />
+          <circle cx="-13" cy="2" r="13" fill="url(#treeCrown)" />
+          <circle cx="13" cy="2" r="13" fill="url(#treeCrown)" />
+        </g>
+
+        <g class="tree" transform="translate(1120,515)">
+          <rect x="-5" y="0" width="10" height="44" fill="url(#treeTrunk)" />
+          <circle cx="0" cy="-8" r="25" fill="url(#treeCrown)" />
+          <circle cx="-17" cy="0" r="16" fill="url(#treeCrown)" />
+          <circle cx="17" cy="0" r="16" fill="url(#treeCrown)" />
+        </g>
+
+        <g opacity="0.18" fill="#000000">
+          <ellipse cx="190" cy="565" rx="15" ry="4" />
+          <ellipse cx="360" cy="560" rx="13" ry="3.5" />
+          <ellipse cx="560" cy="570" rx="14" ry="4" />
+          <ellipse cx="860" cy="565" rx="13" ry="3.5" />
+          <ellipse cx="1120" cy="560" rx="16" ry="4" />
+        </g>
+
+        <g opacity="0.5">
+          <path
+            d="M90,735 C130,728 190,726 240,730"
+            fill="none"
+            stroke="#d9b28a"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <path
+            d="M520,742 C580,736 640,736 700,741"
+            fill="none"
+            stroke="#c89c73"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <path
+            d="M960,750 C1040,744 1160,744 1240,748"
+            fill="none"
+            stroke="#b6865e"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+        </g>
+
+        <text
+          x="50"
+          y="880"
+          class="ground-label"
+        >FOUNDATION: TRANSPARENT, VERIFIABLE PRIVACY SCORES</text>
+      </g>
     </svg>
   </div>
 
-  <main class="content">
+  <main>
     <section class="section">
       <h2>VPN</h2>
       <p>
         <span class="highlight">Mullvad</span> and
-        <span class="highlight">Proton VPN</span> are preferred: strong privacy
-        posture, public audits, and resistance to invasive data collection.
+        <span class="highlight">Proton VPN</span>.
       </p>
     </section>
 
     <section class="section">
       <h2>Browser</h2>
       <p>
-        <span class="highlight">Firefox</span> (hardened) for daily use.
-        <span class="highlight">Tor Browser</span> for anonymity-critical
-        activity.
+        <span class="highlight">Firefox</span> (hardened) and
+        <span class="highlight">Tor Browser</span>.
       </p>
     </section>
 
     <section class="section">
       <h2>Operating Systems</h2>
       <p>
-        <span class="highlight">Qubes OS</span> for strict compartmentalization.
-        <span class="highlight">Tails</span> for amnesic, Tor-routed sessions.
-        <span class="highlight">Fedora</span> as a strong general-purpose choice.
+        <span class="highlight">Qubes OS</span>,
+        <span class="highlight">Tails</span>,
+        <span class="highlight">Fedora</span>.
       </p>
     </section>
 
     <section class="section">
       <h2>Password Management + Auth</h2>
       <p>
-        <span class="highlight">KeePassXC</span> on desktop (especially Windows),
-        <span class="highlight">KeePassDX</span> on mobile, plus
-        <span class="highlight">Firefox Password Manager</span> for integrated,
-        syncable credentials, and
-        <span class="highlight">Proton Pass</span> +
-        <span class="highlight">Proton Auth</span> for encrypted, ecosystem-based
-        secrets and 2FA.
+        <span class="highlight">KeePassXC</span> (Windows desktop),
+        <span class="highlight">KeePassDX</span> (mobile),
+        <span class="highlight">Firefox Password Manager</span>,
+        <span class="highlight">Proton Pass</span>,
+        <span class="highlight">Proton Auth</span>.
       </p>
     </section>
 
     <section class="section">
       <h2>Email</h2>
       <p>
-        <span class="highlight">Proton Mail</span> for end-to-end encrypted,
-        jurisdiction-conscious mail.
+        <span class="highlight">Proton Mail</span>.
       </p>
     </section>
 
     <section class="section">
       <h2>File Storage</h2>
       <p>
-        <span class="highlight">Proton Drive</span> for encrypted cloud storage
-        tied to a privacy-respecting provider.
+        <span class="highlight">Proton Drive</span>.
       </p>
     </section>
 
     <section class="section">
       <h2>Cryptocurrency</h2>
       <p>
-        <span class="highlight">Monero</span> first-choice for privacy-focused
-        transactions. <span class="highlight">Bitcoin</span> second,
-        with strict self-custody and privacy hygiene.
+        <span class="highlight">Monero</span> first,
+        <span class="highlight">Bitcoin</span> second.
       </p>
       <p class="warn">
         Avoid Zcash:
-        influential figures, including Edward Snowden, have publicly promoted
-        it in ways that undermine trust; its model and ecosystem do not align
-        with this index&apos;s bar for credible privacy.
+        lots of influential people, including Edward Snowden,
+        sold out to advertise Zcash; trust and incentives are misaligned.
       </p>
     </section>
 
     <section class="section">
       <h2>Instant Messaging</h2>
       <p>
-        <span class="highlight">Signal</span> for default end-to-end encrypted
-        messaging with a strong track record.
+        <span class="highlight">Signal</span>.
       </p>
     </section>
 
     <section class="section">
       <h2>Web Search</h2>
       <p class="muted">
-        No engine currently meets a high enough standard to be recommended
-        without significant caveats.
+        Nothing currently good enough to recommend without major caveats.
       </p>
     </section>
 
     <section class="section">
       <h2>Calendar</h2>
       <p>
-        <span class="highlight">Proton Calendar</span> alongside Proton&apos;s
-        encrypted ecosystem.
+        <span class="highlight">Proton Calendar</span>.
       </p>
     </section>
 
     <section class="section">
       <h2>Hosting</h2>
       <p>
-        <span class="highlight">ovobox.org</span> as a focused, privacy-forward
-        hosting option.
+        <span class="highlight">ovobox.org</span>.
       </p>
     </section>
   </main>
 
   <script>
     ;(()=>{
-      const svg=document.querySelector('.scene-svg')
-      if(!svg)return
-      const hill=svg.querySelector('#hill')
-      const land=svg.querySelector('#land')
-      const dirt=svg.querySelector('#dirt')
-      const label=svg.querySelector('.ground-label')
-      const trees=[...svg.querySelectorAll('.tree')]
-      const base={
-        hill:hill.getAttribute('d'),
-        land:land.getAttribute('d'),
-        dirt:dirt.getAttribute('d')
+      const g=document.getElementById('ground-group')
+      if(!g)return
+      const max=1
+      const minY=-380
+      const base=g.transform.baseVal.consolidate()
+      const baseY=base?base.matrix.f:0
+      const ensure=()=>{
+        if(!g.transform.baseVal.numberOfItems){
+          const t=g.ownerSVGElement.createSVGTransform()
+          t.setTranslate(0,0)
+          g.transform.baseVal.appendItem(t)
+        }
       }
-      const baseLabelY=parseFloat(label.getAttribute('y'))
-      const maxShift=520
-      const lerp=(a,b,t)=>a+(b-a)*t
-      const shiftPath=(d,dy)=>{
-        return d.replace(/(-?\d+(\.\d+)?)/g,(m)=>{
-          let n=parseFloat(m)
-          if(isNaN(n))return m
-          return String(n)
-        }).replace(/(,)(\d+(\.\d+)?)/g,(m,sep,num)=>{
-          const y=parseFloat(num)+dy
-          return sep+String(y)
-        })
-      }
+      ensure()
       const onScroll=()=>{
-        const maxScroll=window.innerHeight*1.4
-        const s=Math.min(window.scrollY/maxScroll,1)
-        const easing=s*s
-        const shift=-maxShift*easing
-        hill.setAttribute('d',shiftPath(base.hill,shift))
-        land.setAttribute('d',shiftPath(base.land,shift))
-        dirt.setAttribute('d',shiftPath(base.dirt,shift))
-        label.setAttribute('y',baseLabelY+shift)
-        trees.forEach(t=>{
-          const ty=t.__baseY||(t.__baseY=parseFloat((t.getAttribute('transform').match(/,([\d.]+)/)||[0,520])[1]))
-          const nx=ty+shift
-          t.setAttribute('transform',t.getAttribute('transform').replace(/,([\d.]+)\)/,','+nx+')'))
-        })
+        const h=window.innerHeight||1
+        const p=Math.min(window.scrollY/h,max)
+        const eased=p*p
+        const y=baseY+minY*eased
+        const t=g.transform.baseVal.getItem(0)
+        t.setTranslate(0,y)
       }
       window.addEventListener('scroll',onScroll,{passive:true})
       onScroll()
