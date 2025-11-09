@@ -1,1 +1,0 @@
-# privacyindex.github.io
