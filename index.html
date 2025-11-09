@@ -366,10 +366,6 @@
     ;(()=>{
       const g=document.getElementById('ground-group')
       if(!g)return
-      const max=1
-      const minY=-380
-      const base=g.transform.baseVal.consolidate()
-      const baseY=base?base.matrix.f:0
       const ensure=()=>{
         if(!g.transform.baseVal.numberOfItems){
           const t=g.ownerSVGElement.createSVGTransform()
@@ -378,11 +374,13 @@
         }
       }
       ensure()
+      const baseY=g.transform.baseVal.consolidate().matrix.f||0
+      const totalDrop=420
       const onScroll=()=>{
         const h=window.innerHeight||1
-        const p=Math.min(window.scrollY/h,max)
+        const p=Math.min(window.scrollY/h,1)
         const eased=p*p
-        const y=baseY+minY*eased
+        const y=baseY+totalDrop*eased
         const t=g.transform.baseVal.getItem(0)
         t.setTranslate(0,y)
       }
